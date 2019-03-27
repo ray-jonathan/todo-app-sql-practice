@@ -1,0 +1,25 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:create": "createdb todo-app",
+    "db:init": "psql -f schema.sql todo-app && psql -f seed.sql todo-app",
+    "db:destroy": "dropdb todo-app",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
+    "test": "mocha",
+    "test:watch": "mocha -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "pg-promise": "^8.6.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.0.2"
+  }
+}
